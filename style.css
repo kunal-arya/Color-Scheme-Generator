@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ee9ca7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffdde1, #ee9ca7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+.color-generator {
+    max-width: 550px;
+    max-height: 550px;
+    box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+#color-schemes {
+    display: flex;
+    cursor: pointer;
+}
+
+#color-schemes > div{
+    width: 20%;
+}
+
+#color-schemes .color {
+    height: 414px;
+}
+
+.heading {
+    height: 90px;
+    background-color: #1F2937;
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    padding: 0.5em;
+}
+
+.heading > * {
+    height: 34px;
+    margin: 0;
+}
+
+
+/* css for input Color */
+
+.select-color {
+    max-width: 51px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+
+/* select input */
+
+.select {
+    width: 312px;
+    border: 1px solid gray;
+    background-color: #1F293A;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+@media (max-width:500px) {
+    .select {
+        width: 200px;
+    }
+}
+
+.btn-primary {
+    max-width: 123px;
+    width: 100%;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: #3D4B60;
+    border: 0;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary:active {
+    background-color: #fff;
+    color: #3D4B60;
+}
+
+/* Hex Code */
+
+.hex {
+    height: 46px;
+    background-color: #1F2937;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}

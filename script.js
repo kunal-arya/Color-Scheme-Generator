@@ -7,6 +7,9 @@ const getSchemeBtn = document.getElementById("color-btn");
 const colors = document.querySelectorAll(".color");
 const hexCodes = document.querySelectorAll(".hex");
 const bodyEl = document.querySelector("body");
+const colorAndHexEl = document.querySelectorAll(".colors"); 
+const hexCopiedEl = document.querySelector("[data-text-copied]");
+const copyExitBtn = document.querySelector(".copiedExitBtn");
 
 function getColorSchemes() {
     const mode = selectMode.value;
@@ -32,6 +35,9 @@ function getColorSchemes() {
                 const hex = colorArr[i].hex.value;
                 colors[i].style.backgroundColor = hex;
                 hexCodes[i].innerText = hex;
+
+                // storing All hex values to title attribute
+                colorAndHexEl[i].title = hex;
             }
         })
 }
@@ -41,9 +47,23 @@ function getColorSchemes() {
 // Load the color Schemes initially
 getColorSchemes();
 
+// Loading the color scheme whenever someone clicks the btn
+getSchemeBtn.addEventListener("click", getColorSchemes);
 
-function getSchemeClickHandler() {
-    getColorSchemes();
-}
+// Copying text to the clipboard by using title attribute of colorAndHexEl during fetch()
+colorAndHexEl.forEach(color => color.addEventListener("click", () => {
+    
+    // Copying the text to the clipboard
+    navigator.clipboard.writeText(color.title);
+    
+    // adding 
+    hexCopiedEl.classList.remove("hideCopied");
+    setTimeout(() => {
+        hexCopiedEl.classList.add("hideCopied");
+    },10000);
+}));
 
-getSchemeBtn.addEventListener("click", getSchemeClickHandler);
+
+copyExitBtn.addEventListener("click", () => {
+    hexCopiedEl.classList.add("hideCopied");
+})
